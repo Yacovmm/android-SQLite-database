@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         editText = (EditText) findViewById(R.id.editTextTask);
         textView = (TextView) findViewById(R.id.txtViewTask);
         dataBaseHelper = new DataBaseHelper(this, null, null, 1);
+        printDB();
     }
 
     public void addButtonclicked(View view){
