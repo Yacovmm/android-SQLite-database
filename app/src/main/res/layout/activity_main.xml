@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"
         android:text="Add Task"
         android:id="@+id/ButtonAddTask"
+        android:onClick="addButtonclicked"
         />
 
     <Button
@@ -28,6 +29,7 @@
         android:layout_height="wrap_content"
         android:text="Remove Task"
         android:id="@+id/ButtonRemoveTask"
+        android:onClick="removeButtonClicked"
         />
 
     <TextView
@@ -37,6 +39,7 @@
         android:hint="No tasks added yet"
         android:layout_marginTop="20dp"
         android:textSize="23sp"
+        android:id="@+id/txtViewTask"
         />
 
 </LinearLayout>

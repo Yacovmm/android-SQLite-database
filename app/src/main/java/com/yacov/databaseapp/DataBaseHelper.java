@@ -26,7 +26,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String query = " CREATE TABLE " + TABLE_TASKS + " ( " + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_TASKNAME + " TEXT " + " ); ";
+        String query = "CREATE TABLE " + TABLE_TASKS + "(" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_TASKNAME + " TEXT " + " ); ";
         db.execSQL(query);
 
     }
@@ -42,7 +42,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     public void removeTasks(String taskname){
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("DELETE FROM" + TABLE_TASKS + "WHERE" + COLUMN_TASKNAME + "= \" " + taskname + " \";");
+        db.execSQL("DELETE FROM " + TABLE_TASKS + " WHERE " + COLUMN_TASKNAME + "=\"" + taskname + "\";");
     }
 
     public String databasetostring(){
@@ -51,15 +51,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = getWritableDatabase();
 
-        String query = "SELECT * FROM" + TABLE_TASKS + "WHERE 1";
+        String query = "SELECT * FROM " + TABLE_TASKS + " WHERE 1";
 
         Cursor c = db.rawQuery(query, null);
         c.moveToFirst();
 
         while (!c.isAfterLast()){
 
-            if (c.getString(c.getColumnIndex(COLUMN_TASKNAME)) != null){
-                dbstring +=c.getString(c.getColumnIndex("taskname"));
+            if (c.getString(c.getColumnIndex("taskname")) != null){
+                dbstring += c.getString(c.getColumnIndex("taskname"));
                 dbstring += "\n";
             }
             c.moveToNext();
@@ -69,7 +69,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS" + TABLE_TASKS);
 
+        onCreate(db);
     }
 }
