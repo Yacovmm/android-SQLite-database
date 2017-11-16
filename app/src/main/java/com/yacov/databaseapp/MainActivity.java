@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText editText;
+    private EditText taskName, taskContent;
     private TextView textView;
     DataBaseHelper dataBaseHelper;
 
@@ -17,20 +17,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        editText = (EditText) findViewById(R.id.editTextTask);
+        taskName = (EditText) findViewById(R.id.editTextTask);
+        taskContent = (EditText) findViewById(R.id.editTextTaskContent);
         textView = (TextView) findViewById(R.id.txtViewTask);
         dataBaseHelper = new DataBaseHelper(this, null, null, 1);
         printDB();
     }
 
     public void addButtonclicked(View view){
-        Tasks tasks = new Tasks(editText.getText().toString());
+        Tasks tasks = new Tasks(taskName.getText().toString(), taskContent.getText().toString());
         dataBaseHelper.addTasks(tasks);
         printDB();
     }
 
     public void removeButtonClicked(View view){
-        String input = editText.getText().toString();
+        String input = taskName.getText().toString();
         dataBaseHelper.removeTasks(input);
         printDB();
 

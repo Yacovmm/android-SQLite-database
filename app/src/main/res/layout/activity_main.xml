@@ -16,6 +16,14 @@
         android:id="@+id/editTextTask"
         />
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Task content here"
+        android:textAlignment="center"
+        android:id="@+id/editTextTaskContent"
+        />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

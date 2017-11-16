@@ -7,13 +7,15 @@ package com.yacov.databaseapp;
 public class Tasks {
     private int id;
     private String _taskName;
+    private String _taskContent;
 
     public void Tasks(){
 
     }
 
-    public Tasks(String _taskName){
+    public Tasks(String _taskName, String _taskContent){
         this._taskName = _taskName;
+        this._taskContent = _taskContent;
     }
 
     public int getId() {
@@ -30,5 +32,13 @@ public class Tasks {
 
     public void set_taskName(String _taskName) {
         this._taskName = _taskName;
+    }
+
+    public String get_taskContent() {
+        return _taskContent;
+    }
+
+    public void set_taskContent(String _taskContent) {
+        this._taskContent = _taskContent;
     }
 }
